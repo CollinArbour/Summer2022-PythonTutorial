@@ -1,11 +1,21 @@
 ############## IMPORTS ##############
 
-# import ROOT
-# import math
+import ROOT
+import math
 
 ############## FUNCTIONS ##############
 # We want function that const*e^(-(x-mu)*(x-mu) / ((2*sigma)*(2*sigma))) + a + b*x + c*x*x
 
+def gausppar(x,params):
+	"""
+	params[0] -> const
+	params[1] -> mu
+	params[2] -> sigma
+	params[3] -> a
+	params[4] -> b
+	params[5] -> c
+	"""
+	return params[0] * math.exp((x[0] - params[1]) * (x[0] - params[1]) / ( (2*params[2])*(2*params[2]) ) ) + params[3] + params[4]*x[0] + params[5]*x[0]*x[0]
 
 
 ############## MAIN SCRIPT CALL ##############

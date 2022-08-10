@@ -42,8 +42,15 @@ if __name__ == "__main__":
 
    raw.FillRandom('guasppar', 5000) # Fills the histogram with 5000 random numbers from our function:
 
-# Reset our function's parameters back to 1 (Or reasonable value) 
+   # Reset our function's parameters back to 1 (Or reasonable value) 
+	guasppar.SetParameter(0,50)
+   guasppar.SetParameter(1,6)
+	guasppar.SetParameter(2,1)
+	guasppar.SetParameter(3,1)
+	guasppar.SetParameter(4,1)
+	guasppar.SetParameter(5,1)
    # Fitting the histogram with our function
+   fit = raw.Fit(guasppar, "S")
 
    # Initalizing Canvas and Plotting
    c = ROOT.TCanvas("overlay","canvas",400,400)
